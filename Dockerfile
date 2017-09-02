@@ -1,4 +1,4 @@
-FROM webdevops/php-apache-dev:7.0
+FROM webdevops/php-apache-dev
 
 # Add IonCube Loaders
 #RUN mkdir /tmp/ioncube_install
@@ -10,6 +10,9 @@ FROM webdevops/php-apache-dev:7.0
 
 #ADD 20-ioncube.ini /usr/local/etc/php/conf.d/20-ioncube.ini
 
+# Cron Support 
+COPY cron /etc/cron.d/cron.magento
+RUN crontab /etc/cron.d/cron.magento
 
 # GD2 with jpeg support
 RUN apt-get update && apt-get install -y \

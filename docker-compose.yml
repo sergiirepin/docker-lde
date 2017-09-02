@@ -28,8 +28,8 @@ services:
         - database_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin123
-      MYSQL_USER: username
-      MYSQL_PASSWORD: userpasswd
-      MYSQL_DATABASE: database_name
+      MYSQL_USER: user
+      MYSQL_PASSWORD: admin123
+      MYSQL_DATABASE: database
 volumes:
   database_data:
