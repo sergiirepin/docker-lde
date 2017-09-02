@@ -8,8 +8,3 @@ Docker Local development Environment
 - up.sh - script for start containers
 - down.sh - script for down contaiers ( name far should be changed )
 - app env variables according to description ( http://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-apache-dev.html )
-
-
-TODO:
-- Cron
-- Email
