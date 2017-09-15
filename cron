@@ -1,3 +1,2 @@
-* * * * * root . /root/project_env.sh; sh /app/cron.sh >> /app/var/log/cron.log 2>&1
-* * * * * echo "Hello $(date)" >> /app/var/log/cron.log 2>&1
+* * * * * root . /root/project_env.sh; /usr/local/bin/php /app/cron.php >> /app/var/log/cron.log 2>&1
 #
