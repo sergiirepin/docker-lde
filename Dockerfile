@@ -1,4 +1,8 @@
-FROM webdevops/php-apache-dev
+#PHP 5.6
+FROM webdevops/php-apache-dev:ubuntu-15.04
+
+#PHP 7.0
+#FROM webdevops/php-apache-dev:ubuntu-16.04
 
 # Add IonCube Loaders
 #RUN mkdir /tmp/ioncube_install
@@ -13,13 +17,3 @@ FROM webdevops/php-apache-dev
 # Cron Support 
 COPY cron /etc/cron.d/cron.magento
 RUN crontab /etc/cron.d/cron.magento
-
-# GD2 with jpeg support
-RUN apt-get update && apt-get install -y \
-                libicu-dev \ 
-                libjpeg62-turbo-dev \
-                libfreetype6-dev \
-        && docker-php-ext-configure intl \
-        && docker-php-ext-install intl \
-        && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-        && docker-php-ext-install gd
