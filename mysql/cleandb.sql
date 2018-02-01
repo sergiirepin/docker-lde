@@ -5,7 +5,7 @@ DROP PROCEDURE IF EXISTS `TruncateTable`$$
 CREATE PROCEDURE TruncateTable (IN t VARCHAR(50))
 	BEGIN
 	DECLARE tt VARCHAR(50);
-	set tt = (SELECT TABLE_NAME FROM information_schema.TABLES WHERE table_name REGEXP CONCAT('^([a-z]*_)?',t, '$')
+	set tt = (SELECT TABLE_NAME FROM information_schema.TABLES WHERE table_name REGEXP CONCAT('^([a-z0-9]*_)?',t, '$')
 		AND table_schema = DATABASE() AND table_type = 'BASE TABLE' order by TABLE_NAME DESC LIMIT 1);
 		
 	IF tt IS NOT NULL THEN
