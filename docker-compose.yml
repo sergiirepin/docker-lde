@@ -8,8 +8,10 @@ services:
     expose:
       - "80"
       - "443"
+      - "22"
     depends_on:
       - mysql
+      - mail
     environment:
       PHP_POST_MAX_SIZE: 5000M
       PHP_UPLOAD_MAX_FILESIZE: 5000M
@@ -20,6 +22,7 @@ services:
       PHP_MEMORY_LIMIT: 1024M
       PHP_MAX_EXECUTION_TIME: 0
       FPM_REQUEST_TERMINATE_TIMEOUT: 3600
+      POSTFIX_RELAYHOST: mail:1025
 
   mysql:
     build: ./mysql
@@ -32,5 +35,11 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: admin123
       MYSQL_DATABASE: project
+
+  mail:
+    image: schickling/mailcatcher
+    environment:
+      - VIRTUAL_PORT=1080
+
 volumes:
   database_data:
