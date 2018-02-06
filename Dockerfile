@@ -29,3 +29,6 @@ FROM webdevops/php-apache-dev:ubuntu-15.04
 # Cron Support 
 COPY cron /etc/cron.d/cron.magento
 RUN crontab /etc/cron.d/cron.magento
+
+# Setup Xdebug 
+CMD export XDEBUG_CONFIG="idekey=docker"
