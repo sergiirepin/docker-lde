@@ -36,10 +36,20 @@ services:
       MYSQL_PASSWORD: admin123
       MYSQL_DATABASE: project
 
-  mail:
-    image: schickling/mailcatcher
-    environment:
-      - VIRTUAL_PORT=1080
+  # MailCatcher
+  # mail:
+  #   image: schickling/mailcatcher
+  #   environment:
+  #     - VIRTUAL_PORT=1080
 
+  # Mailhog
+  mail:
+    image: mailhog/mailhog
+  #  ports:
+  #    - 8025:8025
+    environment:
+    # - VIRTUAL_HOST=mail.boilerplate.docker
+      - VIRTUAL_PORT=8025
+      
 volumes:
   database_data:
