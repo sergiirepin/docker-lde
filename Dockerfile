@@ -31,4 +31,4 @@ COPY cron /etc/cron.d/cron.magento
 RUN crontab /etc/cron.d/cron.magento
 
 # Setup Xdebug 
-CMD export XDEBUG_CONFIG="idekey=docker"
+ENV XDEBUG_CONFIG="idekey=docker"

@@ -4,6 +4,7 @@ services:
     build: ./
     volumes:
       - ~/repos/project:/app
+      - ./local.xml:/app/app/etc/local.xml
       - /media/project:/app/pub/media
     expose:
       - "80"
